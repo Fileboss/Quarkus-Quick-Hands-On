@@ -1,24 +1,20 @@
 package fr.pgu.greeting;
 
-import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
+import lombok.RequiredArgsConstructor;
 
 import java.util.Objects;
 
 
+@RequiredArgsConstructor
 @Path("/hello")
 public class GreetingResource {
 
     private final GreetingService greetingService;
-
-    @Inject
-    public GreetingResource(GreetingService greetingService) {
-        this.greetingService = greetingService;
-    }
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
